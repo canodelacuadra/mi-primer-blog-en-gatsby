@@ -1,10 +1,26 @@
 import * as React  from 'react'
+import { graphql } from 'gatsby'
 import Layout from '../components/layout'
-const Blog = function  (){
+import Seo from '../components/seo'
+export const query = graphql`
+query  {
+  allFile {
+    nodes {
+      name
+    }
+  }
+}
+`
+const Blog =   ({data})=>{
     return (
       <Layout pageTitle='Blog'>
-      <p>Aqui estaran proximamente nuestras entradas de blog</p>
-  
+       <ul>
+      {data.allFile.nodes.map(node=> (
+        <li key={node.id}>{node.name}</li>
+     
+      ) )}
+      </ul>
+ 
      </Layout>
         )
         
@@ -12,4 +28,4 @@ const Blog = function  (){
 
 }
 export default Blog
-export const Head= ()=><title>Blog de canodelacuadra</title>
+export const Head= ()=><Seo title= "Blog"/>
