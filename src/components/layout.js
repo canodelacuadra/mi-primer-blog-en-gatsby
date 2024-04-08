@@ -34,15 +34,16 @@ const Layout = ({ pageTitle, children }) => {
          <li className={navLinkItem}><Link className={navLinkText} to="/">Home</Link></li>
          <li className={navLinkItem}><Link className={navLinkText}to="/sobremi">Sobre Mí</Link></li>
          <li className={navLinkItem}><Link className={navLinkText} to="/blog">Blog</Link></li>
-         <li className={navLinkItem}><a className={navLinkText} href="https://github.com/canodelacuadra">Github</a></li>
+         <li className={navLinkItem}><Link className={navLinkText} to="/donde-estamos">Dónde Estamos</Link></li>
+
        </ul>
      </nav>
      <main>
        <h1 className={heading}>{pageTitle}</h1>
        {children}
        <footer>
-        <p className="footer"> &copy; canodelacuadra {new Date().getFullYear()}</p>
-       
+        <p className="footer"> &copy; canodelacuadra {new Date().getFullYear()}
+ <a className={navLinkText} href="https://github.com/canodelacuadra">Github</a></p>
         </footer>
      </main>
    </div>
